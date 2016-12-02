@@ -2,7 +2,6 @@ body{
 background: #70e1f5; /* fallback for old browsers */
 background: -webkit-linear-gradient(to left, #70e1f5 , #ffd194); /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to left, #70e1f5 , #ffd194); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 
 header{
@@ -20,6 +19,7 @@ header{
   margin: 40px, auto;
   background: white;
   padding-bottom: 40px;
+  margin: auto;
 }
 
 #gameBoard li{
@@ -35,10 +35,6 @@ header{
   border-radius: 5px;
 }
 
-.o{
-  color: yellow;
-}
-
-.x{
-  color: blue;
+footer{
+  text-align: center;
 }

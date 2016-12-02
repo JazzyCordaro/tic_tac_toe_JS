@@ -1,8 +1,8 @@
 console.log('JS is sourced');
 
 $(document).ready(function(){
-  var x = 'X';
   var o = 'O';
+  var x = 'X';
   var whoseTurn = 0;
   //slot variables
   var slot1 = $('#slot1');
@@ -23,13 +23,78 @@ $(document).ready(function(){
        slot2.hasClass('O') && slot5.hasClass('O') && slot8.hasClass('O') ||
        slot3.hasClass('O') && slot6.hasClass('O') && slot9.hasClass('O') ||
        slot1.hasClass('O') && slot5.hasClass('O') && slot9.hasClass('O') ||
-       slot3.hasClass('O') && slot5.hasClass('O') && slot7.hasClass('O') ||
-  ){
-    alert('Winner is 0!');
-    $('#gameBoard li').text(' ');
-    $('#gameBoard li').removeClass('disable');
-    $('#gameBoard li').removeClass('O');
-    $('#gameBoard li').removeClass('X');
+       slot3.hasClass('O') && slot5.hasClass('O') && slot7.hasClass('O'))
+    {
+      alert('Winner is O!');
+      $('#gameBoard li').text(' ');
+      // $('#gameBoard li').removeClass('disable');
+      $('#gameBoard li').removeClass('O');
+      $('#gameBoard li').removeClass('X');
+
+    }else if(
+       slot1.hasClass('X') && slot2.hasClass('X') && slot3.hasClass('X') ||
+       slot4.hasClass('X') && slot5.hasClass('X') && slot6.hasClass('X') ||
+       slot7.hasClass('X') && slot8.hasClass('X') && slot9.hasClass('X') ||
+       slot1.hasClass('X') && slot4.hasClass('X') && slot7.hasClass('X') ||
+       slot2.hasClass('X') && slot5.hasClass('X') && slot8.hasClass('X') ||
+       slot3.hasClass('X') && slot6.hasClass('X') && slot9.hasClass('X') ||
+       slot1.hasClass('X') && slot5.hasClass('X') && slot9.hasClass('X') ||
+       slot3.hasClass('X') && slot5.hasClass('X') && slot7.hasClass('X'))
+    {
+      alert('Winner is X!');
+      $('#gameBoard li').text(' ');
+      // $('#gameBoard li').removeClass('disable');
+      $('#gameBoard li').removeClass('O');
+      $('#gameBoard li').removeClass('X');
+    }else if(whoseTurn == 9){
+      alert("It's a tie!");
+      $('#gameBoard li').text(' ');
+      // $('#gameBoard li').removeClass('disable');
+      $('#gameBoard li').removeClass('O');
+      $('#gameBoard li').removeClass('X');
+      whoseTurn = 0;
+    }else if($(this).hasClass('disable')){
+      alert('This spot has already been filled, please select another.');
+    }else if (whoseTurn%2 == 0){
+      whoseTurn++;
+      $(this).text(o);
+      $(this).addClass('disable O');
+      if(slot1.hasClass('O') && slot2.hasClass('O') && slot3.hasClass('O') ||
+         slot4.hasClass('O') && slot5.hasClass('O') && slot6.hasClass('O') ||
+         slot7.hasClass('O') && slot8.hasClass('O') && slot9.hasClass('O') ||
+         slot1.hasClass('O') && slot4.hasClass('O') && slot7.hasClass('O') ||
+         slot2.hasClass('O') && slot5.hasClass('O') && slot8.hasClass('O') ||
+         slot3.hasClass('O') && slot6.hasClass('O') && slot9.hasClass('O') ||
+         slot1.hasClass('O') && slot5.hasClass('O') && slot9.hasClass('O') ||
+         slot3.hasClass('O') && slot5.hasClass('O') && slot7.hasClass('O'))
+         {
+           alert("Winner is O!");
+           whoseTurn = 0;
+    }else{
+      whoseTurn++;
+      $(this).text(x);
+      $(this).addClass('disable X');
+      if(slot1.hasClass('X') && slot2.hasClass('X') && slot3.hasClass('X') ||
+        slot4.hasClass('X') && slot5.hasClass('X') && slot6.hasClass('X') ||
+        slot7.hasClass('X') && slot8.hasClass('X') && slot9.hasClass('X') ||
+        slot1.hasClass('X') && slot4.hasClass('X') && slot7.hasClass('X') ||
+        slot2.hasClass('X') && slot5.hasClass('X') && slot8.hasClass('X') ||
+        slot3.hasClass('X') && slot6.hasClass('X') && slot9.hasClass('X') ||
+        slot1.hasClass('X') && slot5.hasClass('X') && slot9.hasClass('X') ||
+        slot3.hasClass('X') && slot5.hasClass('X') && slot7.hasClass('X'))
+          {
+            alert("Winner is X!");
+            whoseTurn = 0;
+          }
+      }
+      //reset button
+      $('#resetButton').click(function(){
+        $('#gameBoard li').text(' ');
+        // $('#gameBoard li').removeClass('disable');
+        $('#gameBoard li').removeClass('O');
+        $('#gameBoard li').removeClass('X');
+        whoseTurn = 0;
+      });
     }
   });
 });
