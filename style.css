@@ -1,0 +1,44 @@
+body{
+background: #70e1f5; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #70e1f5 , #ffd194); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #70e1f5 , #ffd194); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+header{
+  text-align: center;
+}
+
+#resetButton{
+  text-align: center;
+  align-content: center;
+}
+
+#container{
+  width: 350px;
+  overflow: auto;
+  margin: 40px, auto;
+  background: white;
+  padding-bottom: 40px;
+}
+
+#gameBoard li{
+  float: left;
+  margin: 10px;
+  height: 70px;
+  width: 70px;
+  font-size: 60px;
+  background:  gray;
+  color: white;
+  list-style: none;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.o{
+  color: yellow;
+}
+
+.x{
+  color: blue;
+}
