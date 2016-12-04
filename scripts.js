@@ -1,6 +1,7 @@
 console.log('JS is sourced');
 
 $(document).ready(function(){
+  //declaring variables
   var o = 'o';
   var x = 'x';
   var whoseTurn = 0;
@@ -47,12 +48,13 @@ $(document).ready(function(){
       $('#gameBoard li').removeClass('o');
       $('#gameBoard li').removeClass('x');
 
-    }else if(whoseTurn === 9){
+    }else if(whoseTurn == 8){
       alert("It's a tie!");
-      $('#gameBoard li').text(' ');
-      $('#gameBoard li').removeClass('disable');
-      $('#gameBoard li').removeClass('o');
-      $('#gameBoard li').removeClass('x');
+      whoseTurn = 0;
+      // $('#gameBoard li').text(' ');
+      // $('#gameBoard li').removeClass('disable');
+      // $('#gameBoard li').removeClass('o');
+      // $('#gameBoard li').removeClass('x');
       whoseTurn = 0;
     }else if($(this).hasClass('disable')){
       alert('This spot has already been used, please select another.');
